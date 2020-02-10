@@ -1,9 +1,0 @@
-#include<iostream>
-#include<functional>
-#include<cmath>
-
-using namespace std;
-
-const double dx=1e-5;
-
-double DPartial(int i, function<double (double *)> g,double x[4]);
