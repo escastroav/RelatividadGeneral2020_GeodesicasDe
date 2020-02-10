@@ -10,13 +10,13 @@ double Potential(double x[4], double epsilon, double L)
   return (0.5*epsilon - 0.5*Rs*epsilon/x[0] + L*L*0.5/(x[0]*x[0]) - 0.5*Rs*L*L/(x[0]*x[0]*x[0]));
 }
 
-int main(void){
+int main(int argc, char *argv[]){
   cout.precision(4);
   double t = 0;
 
-  double r0 = 5*Rs;
-  double T0 = 5e-8;
-  double L0 = 20*M_PI;
+  double r0 = atof(argv[1])*Rs;
+  double T0 = dt*atof(argv[2]);
+  double L0 = 2*r0*r0*M_PI/(8e4*T0);;
   double E0 = 1.0;
 
   MetricTensor g_ij[4][4]; InitMetric(g_ij);

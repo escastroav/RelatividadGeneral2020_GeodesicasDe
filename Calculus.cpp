@@ -28,7 +28,7 @@ void RK4(Equation f1[4], Equation f2[4], MetricTensor g_ij[4][4], MetricTensor g
   double dx11 [4],dx12 [4],dx13 [4],dx14 [4]; 
   double dx21 [4],dx22 [4],dx23 [4],dx24 [4];
   
-  for(int i=0;i<4;i++) dx01[i]=f2[i](g_ij,gij_,x0,x1,x2,t)*dt;
+  for(int i=0;i<4;i++) dx01[i]=f1[i](g_ij,gij_,x0,x1,x2,t)*dt;
 for(int i=0;i<4;i++)   dx11[i]=f1[i](g_ij,gij_,x0,x1,x2,t)*dt;
 for(int i=0;i<4;i++)    dx21[i]=f2[i](g_ij,gij_,x0,x1,x2,t)*dt;
   
@@ -36,7 +36,7 @@ for(int i=0;i<4;i++)   x0[i] += 0.5*dx01[i];
 for(int i=0;i<4;i++)   x1[i] += 0.5*dx11[i]; 
 for(int i=0;i<4;i++)   x2[i] += 0.5*dx21[i]; 
   
-for(int i=0;i<4;i++)    dx02[i]=f2[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
+for(int i=0;i<4;i++)    dx02[i]=f1[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
 for(int i=0;i<4;i++)   dx12[i]=f1[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
 for(int i=0;i<4;i++)    dx22[i]=f2[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
   
@@ -44,7 +44,7 @@ for(int i=0;i<4;i++)   x0[i] += 0.5*dx02[i];
 for(int i=0;i<4;i++)   x1[i] += 0.5*dx12[i]; 
 for(int i=0;i<4;i++)   x2[i] += 0.5*dx22[i]; 
   
-for(int i=0;i<4;i++)    dx03[i]=f2[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
+for(int i=0;i<4;i++)    dx03[i]=f1[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
 for(int i=0;i<4;i++)    dx13[i]=f1[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
 for(int i=0;i<4;i++)    dx23[i]=f2[i](g_ij,gij_,x0,x1,x2,t+0.5*dt)*dt;
   
@@ -52,7 +52,7 @@ for(int i=0;i<4;i++)  x0[i] += dx03[i];
 for(int i=0;i<4;i++)    x1[i] += dx13[i]; 
 for(int i=0;i<4;i++)    x2[i] += dx23[i]; 
   
-for(int i=0;i<4;i++)    dx04[i]=f2[i](g_ij,gij_,x0,x1,x2,t+dt)*dt;
+for(int i=0;i<4;i++)    dx04[i]=f1[i](g_ij,gij_,x0,x1,x2,t+dt)*dt;
 for(int i=0;i<4;i++)    dx14[i]=f1[i](g_ij,gij_,x0,x1,x2,t+dt)*dt;
 for(int i=0;i<4;i++)   dx24[i]=f2[i](g_ij,gij_,x0,x1,x2,t+dt)*dt;
   

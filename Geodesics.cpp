@@ -86,7 +86,7 @@ cout << "tau" << "\t"
        << "x" << "\t"
        << "y" << "\t"
        << endl;
-  for(t=0; t<1e-1;t+=dt)
+  for(t=0; t<dt*100000;t+=dt)
     {
       cout << t << "\t"
 	   << x0[0] << "\t"
